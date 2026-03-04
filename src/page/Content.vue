@@ -1,29 +1,34 @@
 <template>
-  <div>模擬獎勵</div>
   <!-- 成員列表 -->
-  <div class="departments">
+  <div class="flex justify-center mt-7 gap-7 20">
     <div v-for="dept in departments" :key="dept.name">
       <h3>{{ dept.name }}({{ dept.members.length }})</h3>
 
-      <div v-for="member in dept.members" :key="member.id" class="memberName">
-        {{ member.name }}
-        <button v-if="dept.name !== '尚未加入部門'" @click="moveToUnassigned(member)">
-          移除部門
-        </button>
+      <div v-for="member in dept.members" :key="member.id">
+        <div class="flex">
+          <div class="m-1">{{ member.name }}</div>
+          <button
+            v-if="dept.name !== '尚未加入部門'"
+            @click="moveToUnassigned(member)"
+            class="btn-danger"
+          >
+            移除
+          </button>
 
-        <div v-if="dept.name === '尚未加入部門'">
-          <button @click="addToDepartment(member, '傳送使')">傳送使</button>
-          <button @click="addToDepartment(member, '禦防使')">禦防使</button>
-          <button @click="addToDepartment(member, '研修使')">研修使</button>
-          <button @click="addToDepartment(member, '調停使')">調停使</button>
+          <div v-if="dept.name === '尚未加入部門'">
+            <button @click="addToDepartment(member, '傳送使')" class="btn">傳送使</button>
+            <button @click="addToDepartment(member, '禦防使')" class="btn">禦防使</button>
+            <button @click="addToDepartment(member, '研修使')" class="btn">研修使</button>
+            <button @click="addToDepartment(member, '調停使')" class="btn">調停使</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="reward">
+  <div class="flex justify-center gap-8">
     <div v-for="dept in departments" :key="dept.name">
       <template v-if="dept.name !== '尚未加入部門'">
-        <div class="textmagrn">{{ dept.name }} - 獎勵</div>
+        <div>{{ dept.name }} - 獎勵</div>
 
         <div v-for="reward in rewards[dept.name]" :key="reward">
           {{ reward }}
@@ -107,21 +112,4 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-.departments {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
-
-.reward {
-  display: flex;
-}
-
-.textmagrn {
-  margin-right: 40px;
-}
-
-.memberName {
-  display: flex;
-}
-</style>
+<style scoped></style>

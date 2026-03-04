@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+/* @tailwind components; */
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply px-4 rounded-lg font-medium transition duration-200;
+    @apply bg-blue-200 text-white hover:bg-blue-600;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+  }
+
+  .btn-danger {
+    @apply px-4 rounded-lg font-medium transition duration-200;
+    @apply bg-red-200 text-white hover:bg-red-600;
+  }
+}

@@ -1,7 +1,5 @@
 <template>
-  <div>獎勵一覽</div>
-
-  <div>
+  <div class="flex justify-center mt-7 text-center">
     <table>
       <thead>
         <tr>
