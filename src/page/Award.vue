@@ -11,7 +11,9 @@
       </thead>
       <tbody>
         <tr v-for="member in members" :key="member.id">
+          <td>
           <td>{{ member.name }}</td>
+          </td>
           <td>{{ member.傳送使 }}</td>
           <td>{{ member.禦防使 }}</td>
           <td>{{ member.研修使 }}</td>
@@ -24,6 +26,7 @@
 
 <script setup lang="ts" name="Award">
 import { useMemberstore } from '@/stores/members'
+
 import { storeToRefs } from 'pinia'
 
 const userMemberstore = useMemberstore()

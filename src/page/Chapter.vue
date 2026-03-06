@@ -18,6 +18,7 @@
 
             <div class="text-sm text-amber-700">
               {{ task.content }}
+              <span v-if="task.Ascendancy" class="text-2xl text-red-600">有昇華房!!!!</span>
             </div>
           </div>
         </li>
